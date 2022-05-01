@@ -6,7 +6,7 @@
 /*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 18:49:51 by jomoreno          #+#    #+#             */
-/*   Updated: 2022/04/28 00:06:47 by jose             ###   ########.fr       */
+/*   Updated: 2022/05/01 20:32:16 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int	main(void)
 	const char	*str;
 	char		*ret;
 	const char	ch = '%';
-	const char *str1;
-	const char *str2;
+	const char	*str1;
+	const char	*str2;
 	size_t		n;
 
 	c = 't';
@@ -46,6 +46,5 @@ int	main(void)
 	printf("%s \n", strrchr(str, ch));
 	printf("%s \n", ft_strrchr(str, ch));
 	printf("%d \n", strncmp(str1, str2, n));
-	
 	return (0);
 }
