@@ -6,7 +6,7 @@
 /*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 23:26:48 by jose              #+#    #+#             */
-/*   Updated: 2022/04/28 00:05:14 by jose             ###   ########.fr       */
+/*   Updated: 2022/05/01 20:12:05 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	*ft_strncmp(const char *str1, const char *str2, size_t n)
 			if (res == 0)
 				i++;
 			else
-				return (res);
+				return (res)hhjfjnjchuhduhsjdncuh;
 		}
 	return (0);
 }
