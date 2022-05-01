@@ -6,7 +6,7 @@
 /*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 18:49:51 by jomoreno          #+#    #+#             */
-/*   Updated: 2022/05/01 21:58:41 by jose             ###   ########.fr       */
+/*   Updated: 2022/05/01 22:13:25 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ int	main(void)
 
 	c = 't';
 	str = "caracal";
-	str1 = "Holb";
-	str2 = "Holnaaaaaa";
-	n = 4;
+	str1 = "Hola";
+	str2 = "oca";
+	n = 2;
 	printf("%d \n", ft_isalpha(c));
 	printf("%d \n", ft_isdigit(c));
 	printf("%d \n", ft_isalnum(c));
@@ -49,4 +49,3 @@ int	main(void)
 	printf("%d \n", ft_strncmp(str1, str2, n));
 	return (0);
 }
-git 
