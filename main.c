@@ -6,7 +6,7 @@
 /*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 18:49:51 by jomoreno          #+#    #+#             */
-/*   Updated: 2022/05/03 01:09:46 by jose             ###   ########.fr       */
+/*   Updated: 2022/05/04 23:53:30 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,28 @@
 #include<stdio.h>
 #include<ctype.h>
 #include<string.h>
+#include<stdlib.h>
 
 int	main(void)
 {
 	//char		c;
-	//const char	*str;
+	void	*str;
+	char	*str4;
 	//char		*ret;
 	//const char	ch = '%';
 	//const char	*str1;
 	//const char	*str2;
 	size_t		n;
-	char		*str3;
+	//char		*str3;
 
 	//c = 't';
-	//str = "caracal";
+	str = malloc(sizeof(char));
+	str4 = (char *)str;
+	str4 = "Holaaaa";
 	//str1 = "Holaaaaaaaaaa";
 	//str2 = "oca";
-	str3  = "Hola mi nombre es jose";
-	n = 2;
+	//str3  = "Hola mi nombre es jose";
+	n = 8;
 	//printf("%d \n", ft_isalpha(c));
 	//printf("%d \n", ft_isdigit(c));
 	//printf("%d \n", ft_isalnum(c));
@@ -49,6 +53,8 @@ int	main(void)
 	//printf("%s \n", ft_strrchr(str, ch));
 	//printf("%d \n", strncmp(str1, str2, n));
 	//printf("%d \n", ft_strncmp(str1, str2, n));
-	printf ("%s \n", ft_memset(str3, 'a', n));
+	printf("%s \n", memset(str, 'a', n));
+	printf("%s \n", bzero(str, n));
+	//printf("%s \n", ft_bzero(str, n));
 	return (0);
 }
