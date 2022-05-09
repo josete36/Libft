@@ -6,7 +6,7 @@
 /*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 18:49:51 by jomoreno          #+#    #+#             */
-/*   Updated: 2022/05/05 23:28:15 by jose             ###   ########.fr       */
+/*   Updated: 2022/05/09 23:46:11 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ int	main(void)
 	//c = 't';
 	str = malloc(sizeof(char));
 	str4 = (char *)str;
-	str4 = "Holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
-	src = "caca";
+	str4 = "Holaaaa";
+	src = "HOLa";
 	//str1 = "Holaaaaaaaaaa";
 	//str2 = "oca";
 	//str3  = "Hola mi nombre es jose";
-	n = 3;
+	n = 9;
 	//printf("%d \n", ft_isalpha(c));
 	//printf("%d \n", ft_isdigit(c));
 	//printf("%d \n", ft_isalnum(c));
@@ -60,5 +60,7 @@ int	main(void)
 	//printf("%s \n", ft_bzero(str, n));
 	ft_memcpy(str, src, n);
 	printf("%s \n", str);
+	printf("%s \n", ft_memmove(str, src, n));
+	printf("%s \n", memmove(str, src, n));
 	return (0);
 }
