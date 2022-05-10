@@ -1,0 +1,64 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2578
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red255\green255\blue255;\red252\green90\blue64;\red184\green111\blue179;
+\red19\green19\blue19;\red72\green139\blue206;\red194\green125\blue100;\red203\green203\blue202;\red212\green213\blue153;
+\red142\green213\blue255;\red167\green197\blue151;\red252\green41\blue19;\red19\green19\blue19;\red203\green203\blue202;
+\red203\green203\blue202;\red204\green172\blue105;\red203\green203\blue202;\red0\green0\blue0;\red204\green204\blue202;
+}
+{\*\expandedcolortbl;;\cssrgb\c100000\c100000\c100000\c0;\cssrgb\c100000\c44604\c31621;\cssrgb\c77483\c52772\c75312;
+\cssrgb\c9821\c9821\c9821;\cssrgb\c34356\c61927\c84545;\cssrgb\c80765\c56762\c46655;\cssrgb\c83411\c83411\c83099;\cssrgb\c86232\c86184\c66253;
+\cssrgb\c61729\c86919\c100000;\cssrgb\c71061\c80852\c65647;\cssrgb\c100000\c25745\c7993;\cssrgb\c9832\c9831\c9819;\cssrgb\c83502\c83501\c83084;
+\cssrgb\c83501\c83501\c83084;\cssrgb\c84135\c72677\c48439;\cssrgb\c83320\c83320\c83112;\cssrgb\c0\c1\c1;\cssrgb\c83591\c83590\c83069;
+}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid101\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid2}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}}
+\paperw11900\paperh16840\margl1440\margr1440\vieww18540\viewh13400\viewkind0
+\pard\tx220\tx720\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\pardirnatural\partightenfactor0
+\ls1\ilvl0
+\f0\fs24 \cf0 \cb2 {\listtext	\cb3 \uc0\u8226 	}ft_strlcpy\cb1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+		- Funci\'f3n que devuelve el tama\'f1o de la cadena creada, que al final va a ser lo que mida SRC (L).\
+		- Garantiza la terminaci\'f3n en NULL o \'91 \\0 \'92 para todas las cadenas SRC que no sean de tama\'f1o 0.\
+		- Habra que medir la cadena.\
+		- Ver si el destino es disto de NULL y que el numero de bytes a copiar sea distinto de 0.\
+			- Si esto es as\'ed, iremos creando la nueva cadena en destino. Siempre y cuando el valor del contador i sea menor que el 			tama\'f1o de SRC (L) y el contador sea menor que el numero de bytes a copiar, reservando uno para garantizar que el final 			de la cadena sea \'91\\0\'92 o NULL.\
+\
+
+\f1 \cf4 \cb5 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec4 #include\cf6 \cb5 \strokec6  \cf7 \cb5 \strokec7 "libft.h"\cf8 \cb5 \strokec8 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf8 \cb5 \strokec8 \
+\cf6 \cb5 \strokec6 size_t\cf8 \cb5 \strokec8   \cf9 \cb5 \strokec9 ft_strlcpy\cf8 \cb5 \strokec8 (\cf6 \cb5 \strokec6 char\cf8 \cb5 \strokec8  *\cf10 \cb5 \strokec10 dst\cf8 \cb5 \strokec8 , \cf6 \cb5 \strokec6 const\cf8 \cb5 \strokec8  \cf6 \cb5 \strokec6 char\cf8 \cb5 \strokec8  *\cf10 \cb5 \strokec10 src\cf8 \cb5 \strokec8 , \cf6 \cb5 \strokec6 size_t\cf8 \cb5 \strokec8  \cf10 \cb5 \strokec10 n\cf8 \cb5 \strokec8 )\
+\{\
+    \cf6 \cb5 \strokec6 size_t\cf8 \cb5 \strokec8   i;\
+    \cf6 \cb5 \strokec6 size_t\cf8 \cb5 \strokec8   L;\
+\
+    L = \cf11 \cb5 \strokec11 0\cf8 \cb5 \strokec8 ;\
+    i = \cf11 \cb5 \strokec11 0\cf8 \cb5 \strokec8 ;\
+    \cf4 \cb5 \strokec4 if\cf8 \cb5 \strokec8  (src != \cf6 \cb5 \strokec6 NULL\cf8 \cb5 \strokec8 ) \cf12 \cb13 \strokec14 // He tenido que poner NULL porque los test no me aceptan \'91\\0\'92\cf8 \cb5 \strokec8 \
+    \{\
+        L = \cf9 \cb5 \strokec9 ft_strlen\cf8 \cb5 \strokec8 (src);\
+        \cf4 \cb5 \strokec4 if\cf8 \cb5 \strokec8  (dst != \cf6 \cb5 \strokec6 NULL\cf8 \cb5 \strokec8  && n != \cf11 \cb5 \strokec11 0\cf8 \cb5 \strokec8 ) \cf3 \cb13 \strokec14 // \cf3 \cb13 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 He tenido que poner NULL porque los test no me aceptan \'91\\0\'92\cf8 \cb5 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec8 \
+	  \{\
+            \cf4 \cb5 \strokec4 while\cf8 \cb5 \strokec8  ((i < L) && i < n - \cf11 \cb5 \strokec11 1\cf8 \cb5 \strokec8 )\
+            \{\
+                \cf10 \cb5 \strokec10 dst\cf8 \cb5 \strokec8 [i] = \cf10 \cb5 \strokec10 src\cf14 \cb5 \strokec14 [i];\
+                \cf8 \cb5 \strokec8 i++;\
+            \}\
+            \cf10 \cb5 \strokec10 dst\cf8 \cb5 \strokec8 [i] = \cf7 \cb5 \strokec7 '\cf16 \cb5 \strokec16 \\0\cf7 \cb5 \strokec7 '\cf8 \cb5 \strokec8 ;\
+        \}\
+    \}\
+    \cf4 \cb5 \strokec4 return\cf8 \cb5 \strokec8  (L);\
+\}\cf17 \cb5 \strokec17 \
+\cf18 \cb2 \strokec19 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl360\partightenfactor0
+\ls2\ilvl0\cf18 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}ft_strlcat\
+\pard\tx566\pardeftab720\sl360\partightenfactor0
+\cf18 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec19 \
+	\
+}
