@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jomoreno <jomoreno@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 12:47:22 by jomoreno          #+#    #+#             */
-/*   Updated: 2022/05/25 19:27:43 by jomoreno         ###   ########.fr       */
+/*   Updated: 2022/05/28 14:59:52 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,10 @@ int	ft_atoi(const char *str)
 	while (str[i] == ' ' || str[i] == '\f' || str[i] == '\n'
 		|| str[i] == '\r' || str[i] == '\t' || str[i] == '\v')
 		i++;
-	while (str[i] == '+' || str[i] == '-')
+	if (str[i] == '+' || str[i] == '-')
 	{
-		if (str[i] == '-')
+		if (str[i++] == '-')
 			sign = sign * (-1);
-		i++;
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
