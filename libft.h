@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jomoreno <jomoreno@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 18:00:10 by jomoreno          #+#    #+#             */
-/*   Updated: 2022/05/29 21:14:02 by jose             ###   ########.fr       */
+/*   Updated: 2022/06/07 17:46:43 by jomoreno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,5 @@ void	*ft_calloc(size_t count, size_t size);
 int		ft_atoi(const char *str);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_itoa(int n);
 #endif
