@@ -6,31 +6,33 @@
 /*   By: jomoreno <jomoreno@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 16:38:16 by jomoreno          #+#    #+#             */
-/*   Updated: 2022/06/07 19:08:21 by jomoreno         ###   ########.fr       */
+/*   Updated: 2022/06/07 19:40:05 by jomoreno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*ft_trans(char *s, int count, int n)
+static char	*ft_trans(char *s, int count, char s2)
 {
-	int o;
-	
-	o = 0;
+	int	j;
+
+	j = 0;
 	while (count >= 0)
 	{
-		if (s[o] == '-')
-			n = n * -1;
-			i++;
+		if (s[j] == '-')
+		{
+			s2[j] = s[j];
+			j++;
+		}
+		else
+		{
+			s2[j] = s[count];
+			j++;
+			count--;
+		}
 	}
-	while (n > 9 && i < count)
-	{
-		s[i] = (n % 10) + '0';
-		n = n / 10;
-		i++;
-	}
-	s[i] = n + '0';
-	return (s);
+	j++;
+	return (s2);
 }
 
 static int	ft_count(int n)
@@ -56,8 +58,8 @@ char	*ft_itoa(int n)
 		return (ft_strdup("-2147483648"));
 	else
 		count = ft_count(n);
-	s = malloc((count) * sizeof(char));
+	s2 = malloc((count) * sizeof(char));
 	if (!s)
 		return (NULL);
-	return (ft_trans(s, count, n));
+	return (ft_trans(s, count, s2));
 }
