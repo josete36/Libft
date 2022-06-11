@@ -6,13 +6,14 @@
 /*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 20:58:41 by jose              #+#    #+#             */
-/*   Updated: 2022/06/09 22:19:32 by jose             ###   ########.fr       */
+/*   Updated: 2022/06/12 01:19:35 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include<stdio.h>
 
-static int	ft_len_num(int num)
+size_t	ft_len_num(int num)
 {
 	int	i;
 
@@ -21,32 +22,80 @@ static int	ft_len_num(int num)
 		i++;
 	while (num)
 	{
-		num = num / 10;
 		i++;
+		num = num / 10;
 	}
 	return (i);
 }
 
-char	*ft_itoa(int n)
+static char	*ft_inttostr(int n, char *str)
 {
-	char	*str;
-	int		num_len;
-	long	num;
+	int	i;
+	int	isneg;
 
-	num_len = ft_len_num(n);
-	str = malloc((num_len + 1) * sizeof(char));
-	if (!str)
-		return (NULL);
+	i = 0;
 	if (n < 0)
 	{
-		str[0] = '-';
 		n = n * (-1);
+		isneg = 1;
 	}
-	while (n)
+	while (n > 9)
 	{
-		str[num_len] = n % 10 + '0';
+		str[i] = (n % 10) + '0';
 		n = n / 10;
-		num_len++;
+		i++;
 	}
+	str[i] = n + '0';
+	i++;
+	if (isneg == 1)
+	{
+		str[i] = '-';
+		i++;
+	}
+	str[i] = '\0';
 	return (str);
 }
+
+static char	*ft_reverse(char *s1, int len)
+{
+	int		i;
+	char	*s2;
+
+	i = 0;
+	s2 = malloc((len + 1) * sizeof(char));
+	while (len >= 0)
+	{
+		s2[i] = s1[len - 1];
+		i++;
+		len--;
+	}
+	return (s2);
+}
+
+char	*ft_itoa(int n)
+{
+	char		*str;
+	int			num_len;
+	char		*str2;
+	long		num;
+
+	num = (long)n;
+	num_len = ft_len_num(num);
+	str = malloc(sizeof(char) * (num_len + 1));
+	if (!str)
+		return (NULL);
+	if (num == -2147483648)
+	{
+	}
+	else
+		str2 = ft_inttostr(num, str);
+	return (ft_reverse(str2, num_len));
+}
+
+/*int	main(void)
+{
+	int		num;
+
+	num = -2145667777;
+	printf("%s \n", ft_itoa(num));
+}*/
