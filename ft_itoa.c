@@ -6,7 +6,7 @@
 /*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 20:58:41 by jose              #+#    #+#             */
-/*   Updated: 2022/06/12 01:19:35 by jose             ###   ########.fr       */
+/*   Updated: 2022/06/13 18:35:35 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static char	*ft_reverse(char *s1, int len)
 
 	i = 0;
 	s2 = malloc((len + 1) * sizeof(char));
-	while (len >= 0)
+	while (len > 0)
 	{
 		s2[i] = s1[len - 1];
 		i++;
@@ -81,14 +81,12 @@ char	*ft_itoa(int n)
 
 	num = (long)n;
 	num_len = ft_len_num(num);
+	if (n == -2147483647)
+		return ("-2147483647");
 	str = malloc(sizeof(char) * (num_len + 1));
 	if (!str)
 		return (NULL);
-	if (num == -2147483648)
-	{
-	}
-	else
-		str2 = ft_inttostr(num, str);
+	str2 = ft_inttostr(num, str);
 	return (ft_reverse(str2, num_len));
 }
 
