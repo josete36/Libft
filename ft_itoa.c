@@ -6,7 +6,7 @@
 /*   By: jomoreno <jomoreno@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 17:00:49 by jomoreno          #+#    #+#             */
-/*   Updated: 2022/06/16 19:40:05 by jomoreno         ###   ########.fr       */
+/*   Updated: 2022/06/16 19:43:39 by jomoreno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ size_t	ft_len_num(long num)
 	return (i);
 }
 
-void	*ft_inttostr(long num, char *str, int num_len, int neg)
+char	*ft_inttostr(long num, char *str, int num_len, int neg)
 {
 	str[num_len] = '\0';
 	num_len--;
