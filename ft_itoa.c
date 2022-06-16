@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jomoreno <jomoreno@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/06 20:58:41 by jose              #+#    #+#             */
-/*   Updated: 2022/06/13 18:35:35 by jose             ###   ########.fr       */
+/*   Created: 2022/06/16 17:00:49 by jomoreno          #+#    #+#             */
+/*   Updated: 2022/06/16 19:40:05 by jomoreno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include<stdio.h>
 
-size_t	ft_len_num(int num)
+size_t	ft_len_num(long num)
 {
 	int	i;
 
@@ -28,72 +28,52 @@ size_t	ft_len_num(int num)
 	return (i);
 }
 
-static char	*ft_inttostr(int n, char *str)
+void	*ft_inttostr(long num, char *str, int num_len, int neg)
 {
-	int	i;
-	int	isneg;
-
-	i = 0;
-	if (n < 0)
+	str[num_len] = '\0';
+	num_len--;
+	while (num_len >= 0)
 	{
-		n = n * (-1);
-		isneg = 1;
+		str[num_len] = num % 10 + '0';
+		num = num / 10;
+		num_len--;
 	}
-	while (n > 9)
-	{
-		str[i] = (n % 10) + '0';
-		n = n / 10;
-		i++;
-	}
-	str[i] = n + '0';
-	i++;
-	if (isneg == 1)
-	{
-		str[i] = '-';
-		i++;
-	}
-	str[i] = '\0';
+	if (neg == 1)
+		str[0] = '-';
 	return (str);
 }
 
-static char	*ft_reverse(char *s1, int len)
+void	ft_isneg(long *num, int *neg)
 {
-	int		i;
-	char	*s2;
-
-	i = 0;
-	s2 = malloc((len + 1) * sizeof(char));
-	while (len > 0)
+	if (*num < 0)
 	{
-		s2[i] = s1[len - 1];
-		i++;
-		len--;
+		*num = *num * -1;
+		*neg = 1;
 	}
-	return (s2);
 }
 
 char	*ft_itoa(int n)
 {
 	char		*str;
 	int			num_len;
-	char		*str2;
 	long		num;
+	int			neg;
 
-	num = (long)n;
+	if (n == 0)
+	{
+		str = ft_calloc(2, sizeof(char));
+		if (!str)
+			return (0);
+		str[0] = '0';
+		return (str);
+	}
+	num = n;
+	neg = 0;
 	num_len = ft_len_num(num);
-	if (n == -2147483647)
-		return ("-2147483647");
-	str = malloc(sizeof(char) * (num_len + 1));
+	ft_isneg(&num, &neg);
+	str = malloc((num_len + 1) * sizeof(char));
 	if (!str)
-		return (NULL);
-	str2 = ft_inttostr(num, str);
-	return (ft_reverse(str2, num_len));
+		return (0);
+	else
+		return (ft_inttostr(num, str, num_len, neg));
 }
-
-/*int	main(void)
-{
-	int		num;
-
-	num = -2145667777;
-	printf("%s \n", ft_itoa(num));
-}*/
